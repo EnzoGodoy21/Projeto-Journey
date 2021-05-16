@@ -10,13 +10,26 @@ html {
 }
 
 .body-home {
-    background-image: url("Imagens/Background.png");
+    background-image: url("Imagens/background-home.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .body-player{
     background: #121212;
+}
+
+
+.body-entrar {
+    background-image: url("Imagens/background-entrar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.body-cadastrar {
+    background-image: url("Imagens/background-cadastro.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /* ========================================================================== */
 
@@ -44,7 +57,7 @@ html {
     transform: scale(1.1);
 }
 
-.nav-bar .container {
+.container {
     width: 80%;
     margin: auto;
     height: 100%;
@@ -79,7 +92,9 @@ html {
 
 /* ========================================================================== */
 
-/* Config dos estilos do conteudo da Home Page */
+
+
+/* ++++++++++++ Config dos estilos do conteudo da Home Page +++++++++++++++++ */
 
 .logo-home {
     display: flex;
@@ -129,8 +144,13 @@ html {
     transform: scale(1.1);
     outline: none;
 }
-
 /* ========================================================================== */
+
+
+
+
+/* +++++++++++++++++++++++++ Config do Web Player +++++++++++++++++++++++++++ */
+
 
 /* Config da side bar */
 
@@ -297,7 +317,6 @@ html {
     background: linear-gradient( 0deg, #7f61b4, #B7B4FA);
 }
 
-
 .desc span{
     font-size: 22px;
     font-family: 'Comfortaa';
@@ -336,3 +355,84 @@ html {
 }
 
 /* ========================================================================== */
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+/* +++++++++++++++++++++++ Config da Página de Login ++++++++++++++++++++++++ */
+
+.box-entrar{
+    margin-top: 107px;
+    width: 490px;
+    height: 640px;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #CACAEB 0%, rgba(202, 202, 235, 0.21) 100%);
+    float: left;
+}
+
+.box-entrar h1{
+    padding-top: 44px;
+    padding-left: 70px;
+    font-size: 50px;
+    font-weight: 400;
+    font-family: 'Comfortaa', cursive;
+    color: #F93F81;
+}
+
+.box-input{
+    padding-top: 8%;
+    padding-left: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-input span{
+    margin-bottom: 1%;
+    margin-top: 39px;
+    font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+    color: #4E3387;
+}
+
+.box-input input{
+    width: 293px;
+    height: 27px;
+    text-align: center;
+    border: solid 1px #810E4D;
+    background: rgba(0, 0, 0, 0);
+    outline: none;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+.box-input button{
+    width:190px;
+    height: 35px;
+    margin-top: 27%;
+    margin-left: 16%;
+    background: #958DEE;
+    color: #3800FF;
+    box-shadow: 2px 1px 8px 0px #000;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.box-input button:hover{
+    transition: all 0.3s ease-in-out; 
+    transform: scale(1.1);
+}
+
+.mensagem{
+    margin-left: 10%;
+    margin-top: 21%;
+    float: left;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 65px;
+    font-weight: 400;
+    color: #FA8AB2;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Comfortaa:wght@300&display=swap"
         rel="stylesheet">
     <!-- Os links a seguir são os links do icone e do css -->
-    <link rel="icon" type="imagem/png" href="Imagens/favicon.ico" />
+    <link rel="icon" type="imagem/png" href="Imagens/logo-icon.ico" />
     <link rel="stylesheet" href="style.css">
     <title>Journey</title>
 </head>
@@ -29,15 +29,15 @@
         </a>
         <div class="group-itens">
             <a href="#home" class="btn-side">
-                <img src="Imagens/casa.png" class="svg">
+                <img src="Imagens/btn-home.png" class="svg">
                 Home
             </a>
             <a href="#buscar" class="btn-side">
-                <img src="Imagens/lupa.png" class="svg">
+                <img src="Imagens/btn-buscar.png" class="svg">
                 Buscar
             </a>
             <a href="#musicas" class="btn-side">
-                <img src="Imagens/suas musicas.png" class="svg">
+                <img src="Imagens/btn-biblioteca.png" class="svg">
                 Suas Musicas
             </a>
         </div>
@@ -54,21 +54,21 @@
 
         <div class="button">
             <div id="btn-repeat" class="left-btn">
-                <img class="side-img" src="Imagens/repetir.png">
+                <img class="side-img" src="Imagens/btn-repeat.png">
             </div>
             <div id="btn-voltar" class="left-btn">
                 <img class="side-img rotate" style="margin-left: -4px;"
-                    src="Imagens/avanco-rapido-do-contorno-da-seta-dupla.png">
+                    src="Imagens/btn-avançar.png">
             </div>
             <div id="btn-play" class="play-btn">
-                <img id="img-playPause" src="Imagens/play-button.png">
+                <img id="img-playPause" src="Imagens/btn-play.png">
             </div>
             <div id="btn-avancar" class="right-btn">
                 <img class="side-img" style="margin-left: 5px;"
-                    src="Imagens/avanco-rapido-do-contorno-da-seta-dupla.png">
+                    src="Imagens/btn-avançar.png">
             </div>
             <div id="btn-random" class="right-btn">
-                <img class="side-img" src="Imagens/random.png">
+                <img class="side-img" src="Imagens/btn-random.png">
             </div>
         </div>
 
@@ -119,13 +119,13 @@
     function playPause() {
         if (tocando) {
             btnPlay.classList.add('pause-btn');
-            imgPlayPause.src = "Imagens/pause.png";
+            imgPlayPause.src = "Imagens/btn-pause.png";
             audio.play();
             tocando = false;
         }
         else {
             btnPlay.classList.remove('pause-btn');
-            imgPlayPause.src = "Imagens/play-button.png";
+            imgPlayPause.src = "Imagens/btn-play.png";
             audio.pause();
             tocando = true;
         }
