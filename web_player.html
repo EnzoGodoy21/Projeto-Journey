@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Os 4 links a seguir dão acesso as fontes -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Comfortaa:wght@300&display=swap"
+        rel="stylesheet">
+    <!-- Os links a seguir são os links do icone e do css -->
+    <link rel="icon" type="imagem/png" href="Imagens/favicon.ico" />
+    <link rel="stylesheet" href="style.css">
+    <title>Journey</title>
+</head>
+
+<body class="body-player">
+
+    <audio src="Musicas Journey/Deus é Mais - Xande de Pilares.mp3" ></audio>
+
+    <div class="side-bar">
+        <a href="index.html" class="side-logo">
+            <img class="logo" src="Imagens/logo.png">
+            <h1>JOURNEY</h1>
+        </a>
+        <div class="group-itens">
+            <a href="#home" class="btn-side">
+                <img src="Imagens/casa.png" class="svg">
+                Home
+            </a>
+            <a href="#buscar" class="btn-side">
+                <img src="Imagens/lupa.png" class="svg">
+                Buscar
+            </a>
+            <a href="#musicas" class="btn-side">
+                <img src="Imagens/suas musicas.png" class="svg">
+                Suas Musicas
+            </a>
+        </div>
+
+        <hr>
+
+        <div class="group-playlist">
+            <a href="" class="btn-side"> Playlist 1</a>
+            <a href="" class="btn-side"> Playlist 2</a>
+        </div>
+    </div>
+
+    <div class="controler">
+
+        <div class="button">
+            <div id="btn-repeat" class="left-btn">
+                <img class="side-img" src="Imagens/repetir.png">
+            </div>
+            <div id="btn-voltar" class="left-btn">
+                <img class="side-img rotate" style="margin-left: -4px;"
+                    src="Imagens/avanco-rapido-do-contorno-da-seta-dupla.png">
+            </div>
+            <div id="btn-play" class="play-btn">
+                <img id="img-playPause" src="Imagens/play-button.png">
+            </div>
+            <div id="btn-avancar" class="right-btn">
+                <img class="side-img" style="margin-left: 5px;"
+                    src="Imagens/avanco-rapido-do-contorno-da-seta-dupla.png">
+            </div>
+            <div id="btn-random" class="right-btn">
+                <img class="side-img" src="Imagens/random.png">
+            </div>
+        </div>
+
+        <div class="desc">
+            <span id="tempoAtual">0:00</span>
+            <input id="progress-bar" class="progress-bar" type="range" value="0">
+            <span id="tempoTotal">0:00</span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    const audio = document.querySelector('audio');
+    const imgPlayPause = document.getElementById('img-playPause');
+
+    const btnPlay = document.getElementById('btn-play');
+    const btnAvancar = document.getElementById('btn-avancar');
+    const btnVoltar = document.getElementById('btn-voltar');
+    const btnRandom = document.getElementById('btn-random');
+    const btnRepeat = document.getElementById('btn-repeat');
+    const barraProgresso = document.getElementById('progress-bar');
+    const tempoAtual = document.getElementById('tempoAtual');
+    const tempoTotal = document.getElementById('tempoTotal');
+
+    let idMusc = 0;
+    let idRandom = -1;
+    let repeatId = 1;
+
+    let randomSelect = [];
+    let Playlist1 = [
+        "Deus é Mais - Xande de Pilares.mp3","Atalho - Mosquito.mp3", "Aventureiro_Velocidade da Luz - Grupo Revelação.mp3", "Essencia da Paixao - Grupo Revelação.mp3",
+        "Hoje é dia de Festa - Efson.mp3", "Se eu Tivesse o Poder - Grupo Revelação.mp3," ,"Homenagem Sambistas Perfeitos - Grupo Revelação.mp3", "Lama nas Ruas - Diogo Nogueira.mp3",
+        "Letreiro - Dunga.mp3", "Meu_Poeta - Arlindo Cruz.mp3", "Novos Tempos - Grupo Revelação.mp3",
+        "O Penetra_Pai Coruja_Vacilao - Ze Roberto.mp3", "Ogum - Marquinhos PQD.mp3", "Os Papeis_O samba e meu dom - Wilson das Neves.mp3",
+        "Poeta do Morro - Luiz Melodia.mp3", "Quando eu Contar_Deixa a Vida me Levar - Serginho Meriti.mp3",
+        "Retalhos_de_Cetim - Benito di Paula.mp3", "Ser Humano - Claudemir.mp3", "So depois_Deixa Acontecer Naturalmente - Grupo Revelação.mp3",
+        "Vida da Minha Vida - Fundo de Quintal.mp3", "Vou botar teu nome na Macumba - Dudu Nobre.mp3"];
+
+    let repeatVerif = false;
+    let reprodR = false
+    let tocando = true;
+
+    function playPause() {
+        if (tocando) {
+            btnPlay.classList.add('pause-btn');
+            imgPlayPause.src = "Imagens/pause.png";
+            audio.play();
+            tocando = false;
+        }
+        else {
+            btnPlay.classList.remove('pause-btn');
+            imgPlayPause.src = "Imagens/play-button.png";
+            audio.pause();
+            tocando = true;
+        }
+    }
+
+    function proximaMusica() {
+        if (reprodR) {
+            idRandom++;
+            if (idRandom > randomSelect.length - 1) {
+                idRandom = 0;
+            }
+            audio.src = "Musicas Journey/" + Playlist1[randomSelect[idRandom]];
+            tocando = true;
+            playPause();
+            idMusc = randomSelect[idRandom];
+        }
+        else {
+            idMusc++
+            if (idMusc > Playlist1.length - 1) {
+                idMusc = 0;
+            }
+            audio.src = "Musicas Journey/" + Playlist1[idMusc];
+            tocando = true;
+            playPause();
+        }
+    }
+
+    function voltarMusica() {
+        if (reprodR) {
+            idRandom--;
+            if (idRandom < 0) {
+                idRandom = randomSelect.length - 1;
+            }
+            audio.src = "Musicas Journey/" + Playlist1[randomSelect[idRandom]];
+            tocando = true;
+            playPause();
+            idMusc = randomSelect[idRandom];
+        }
+        else {
+            idMusc--;
+            if (idMusc < 0) {
+                idMusc = Playlist1.length - 1;
+            }
+            audio.src = "Musicas Journey/" + Playlist1[idMusc];
+            tocando = true;
+            playPause();
+        }
+    }
+
+    function reprodRandom() {
+        randomSelect = [];
+        for (var i = 0; i <= Playlist1.length - 1; i++) {
+            var randomico = parseInt(Math.random() * Playlist1.length);
+            for (var verif = 0; verif < randomSelect.length;) {
+                if (randomico == randomSelect[verif]) {
+                    randomico = parseInt(Math.random() * Playlist1.length);
+                    verif = 0;
+                }
+                else {
+                    verif++
+                }
+            }
+            randomSelect[i] = randomico;
+        }
+        if (reprodR) {
+            reprodR = false;
+            btnRandom.style.background = "linear-gradient(0deg, #B7B4FA, #B7B4FA)";
+        }
+        else {
+            reprodR = true;
+            btnRandom.style.background = "linear-gradient(0deg, #7f61b4, #7a78a5)"
+        }
+
+    }
+
+    function repeat() {
+        repeatId++;
+        if ((repeatId % 2) == 0) {
+            repeatVerif = true;
+            btnRepeat.style.background = "linear-gradient(0deg, #7f61b4, #7a78a5)"
+        }
+        else {
+            repeatVerif = false;
+            btnRepeat.style.background = "linear-gradient(0deg, #B7B4FA, #B7B4FA)";
+        }
+    }
+
+    function continuarReproducao() {
+        if (reprodR) {
+            idRandom++;
+            if (idRandom > randomSelect.length - 1 && repeatVerif) {
+                idRandom = 0;
+            }
+            audio.src = "Musicas Journey/" + Playlist1[randomSelect[idRandom]];
+            tocando = true;
+            playPause();
+            idMusc = randomSelect[idRandom];
+        }
+        else {
+            idMusc++
+            if (idMusc > Playlist1.length - 1 && repeatVerif) {
+                idMusc = 0;
+            }
+            audio.src = "Musicas Journey/" + Playlist1[idMusc];
+            tocando = true;
+            playPause();
+        }
+
+        btnRepeat
+
+    }
+
+    function valorTempoAtual() {
+        barraProgresso.max = audio.duration;
+        barraProgresso.value = audio.currentTime;
+
+        tempoAtual.textContent = arredondarTempo(audio.currentTime);
+        tempoTotal.textContent = arredondarTempo(audio.duration);
+    }
+
+    setInterval(valorTempoAtual, 1000);
+
+    function arredondarTempo(sec) {
+        let minutes = Math.floor(sec / 60);
+        let seconds = Math.floor(sec - minutes * 60);
+        if (seconds < 10) {
+            seconds = `0${seconds}`;
+        }
+        return `${minutes}:${seconds}`;
+    }
+
+    function changeProgressBar() {
+        audio.currentTime = barraProgresso.value;
+    }
+
+    // Eventos dos botões e da reprodução
+    barraProgresso.addEventListener("click", changeProgressBar);
+    btnRandom.addEventListener('click', reprodRandom);
+    btnPlay.addEventListener('click', playPause);
+    btnAvancar.addEventListener('click', proximaMusica);
+    btnVoltar.addEventListener('click', voltarMusica);
+    btnRepeat.addEventListener('click', repeat);
+    audio.addEventListener('ended', continuarReproducao);
+
+</script>
