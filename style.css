@@ -436,3 +436,69 @@ html {
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+/* ++++++++++++++++++++ Config da Página de Cadastro ++++++++++++++++++++++++ */
+
+.form-cadastro{
+    width: 482px;
+    height: 669px;
+    background: linear-gradient(#CACAEB, #bdbbebd4, #aca9ec73);
+    margin: auto;
+    margin-top: 103px;
+}
+
+.form-cadastro h1{
+    font-size: 50px;
+    padding-top: 8%;
+    padding-left: 17%;
+    font-family: 'Comfortaa', cursive;
+    color: #F93F81;
+}
+
+.box-cadastro{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-left: 18%;
+}
+
+.box-cadastro input{
+    width: 293px;
+    height: 27px;
+    text-align: center;
+    border: solid 1px #810E4D;
+    background: rgba(0, 0, 0, 0);
+    outline: none;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+.box-cadastro span{
+    margin-bottom: 1%;
+    margin-top: 10%;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    color: #4E3387;
+}
+
+.box-cadastro button{
+    width: 190px;
+    height: 35px;
+    margin-top: 21%;
+    margin-left: 12%;
+    background: #958DEE;
+    color: #3800FF;
+    box-shadow: 2px 1px 8px 0px #000;
+    border-radius: 10px;
+    border: none;
+    outline: none; 
+}
+
+.box-cadastro button:hover{
+    transition: all 0.3s ease-in-out; 
+    transform: scale(1.1);
+}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

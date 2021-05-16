@@ -19,7 +19,8 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="body-cadastrar">
+
     <div class="nav-bar">
         <div class="container">
             <h1><a href="index.html">JOURNEY</a></h1>
@@ -33,6 +34,21 @@
                 </ul>
             </div>
         </div>
+    </div>
+
+    <div class="form-cadastro">
+        <h1>Inscrever-se</h1>
+        <form class="box-cadastro">
+            <span>Nome:</span>
+            <input id="ipt-nome" required minlength="3">
+            <span>Login:</span>
+            <input id="ipt-login" required minlength="3">
+            <span>Senha:</span>
+            <input id="ipt-senha" type="password" required minlength="6">
+            <span>Confime sua Senha:</span>
+            <input id="ipt-confirm-senha" type="password" required minlength="6">
+            <button>CADASTRAR</button>
+        </form>
     </div>
 </body>
 
