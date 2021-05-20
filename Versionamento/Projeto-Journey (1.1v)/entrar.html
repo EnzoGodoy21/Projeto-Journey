@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- Os 4 links a seguir dão acesso as fontes -->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+
+     <!-- Os links a seguir são os links do icone e do css -->
+     <link rel="icon" type="imagem/png" href="Imagens/logo-icon.ico" />
+     <link rel="stylesheet" href="style.css">
+
+    <title>Journey</title>
+</head>
+
+<body class="body-entrar">
+
+    <div class="nav-bar">
+        <div class="container">
+            <h1><a href="index.html">JOURNEY</a></h1>
+            <div class="nav-items">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="web_player.html">Web Player</a></li>
+                    <li><a href="cadastrar.html">Inscrever-se</a></li>
+                    <li>|</li>
+                    <li><a href="entrar.html">Entrar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="conteudo-form-msg">
+        <div class="container">
+            <div class="box-entrar">
+                <h1>ENTRAR</h1>
+                <form id="form_login" method="POST" onsubmit="return entrar()"  class="box-input">
+                    <span>Login:</span>
+                    <input name="ipt_login">
+                    <span>Senha:</span>
+                    <input type="password" name="ipt_senha">
+                    <button id='btn_entrar'>ENTRAR</button>
+
+                </form>
+                <div class="mensagem-cadastro">
+                    <span id="spanCadastro">Ainda não tem um cadastro?<a href="cadastrar.html">Inscreva-se</a></span>
+                </div>
+            </div>
+            <div class="mensagem">
+                CLAREIE SEU DIA 
+                <br>
+                COM SUA 
+                <br>
+                PLAYLIST FAVORITA
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'tempo-real.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+
+</script>
