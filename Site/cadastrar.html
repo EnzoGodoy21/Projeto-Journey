@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Os 4 links a seguir dão acesso as fontes -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Os links a seguir são os links do icone e do css -->
+    <link rel="icon" type="imagem/png" href="Imagens/logo-icon.ico" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+
+<body class="body-cadastrar">
+
+    <div class="nav-bar">
+        <div class="container">
+            <h1><a href="index.html">JOURNEY</a></h1>
+            <div class="nav-items">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="web_player.html">Web Player</a></li>
+                    <li><a href="cadastrar.html">Inscrever-se</a></li>
+                    <li>|</li>
+                    <li><a href="entrar.html">Entrar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-cadastro">
+        <h1>Inscrever-se</h1>
+        <form class="box-cadastro">
+            <span>Nome:</span>
+            <input name="nome" required minlength="3" maxlength="30">
+            <span>Sobrenome:</span>
+            <input name="sobrenome" required maxlength="45">
+            <span>Login:</span>
+            <input name="login" required minlength="3">
+            <span>Senha:</span>
+            <input name="senha" type="password" required minlength="8" maxlength="16">
+            <span>Confime sua Senha:</span>
+            <input name="confirm-senha" type="password" required minlength="6" maxlength="16">
+            <input type="submit" id="input_submit" value="CADASTRAR">
+        </form>
+    </div>
+</body>
+
+</html>
