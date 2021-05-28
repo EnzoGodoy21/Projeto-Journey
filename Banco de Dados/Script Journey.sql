@@ -6,7 +6,7 @@ create table Usuario
 	idUsuario int primary key auto_increment,
     nomeUsuario varchar(30),
     sobrenome varchar(45),
-    login varchar(45),
+    login varchar(45) unique,
     senha varchar(16)
 );
 
@@ -25,9 +25,20 @@ create table playlist
     nomePlaylist varchar(45)
 );
 
-drop table musica;
-select * from usuario;
+create table musica
+(
+	idMusica int primary key auto_increment,
+    nomeMusica varchar(60),
+    genero varchar(45),
+    autor varchar(45),
+    nomeArquivo varchar(60)
+);
 
 
-select * from playlist;
+truncate musica;
 truncate usuario;
+
+select * from musica;
+select * from usuario;
+select * from playlist;
+
