@@ -16,7 +16,7 @@ create table musica
     nomeMusica varchar(50),
     genero varchar(45),
     autor varchar(45),
-    nomeArquivo varchar(60)
+    nomeArquivo varchar(100)
 );
 
 create table playlist 
@@ -25,15 +25,16 @@ create table playlist
     nomePlaylist varchar(45)
 );
 
-create table musica
+create table biblioteca
 (
-	idMusica int primary key auto_increment,
-    nomeMusica varchar(60),
-    genero varchar(45),
-    autor varchar(45),
-    nomeArquivo varchar(60)
+	fkMusica int,
+	fkUsuario int,
+    foreign key (fkMusica)references musica(idMusica),
+    foreign key (fkUsuario)references usuario(idUsuario),
+    primary key (fkMusica, fkUsuario)
 );
 
+update musica set nomeArquivo = "Foo Fighters - The Pretender.mp3" where idMusica = 29;
 
 truncate musica;
 truncate usuario;
