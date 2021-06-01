@@ -19,7 +19,7 @@ insert into musica values
 (null,"Paradise","Pop","Coldplay","Coldplay - Paradise.mp3"),
 (null,"Speed of Sound","Rock","Coldplay","Coldplay - Speed of Sound.mp3"),
 (null,"The Scientist","Rock Alternativo","Coldplay","Coldplay - The Scientist.mp3"),
-(null,"Trouble","GENERO","Coldplay","Coldplay - Trouble.mp3"),
+(null,"Trouble","Soft Rock","Coldplay","Coldplay - Trouble.mp3"),
 (null,"Viva La Vida","Pop Barroco","Coldplay","Coldplay - Viva La Vida.mp3"),
 (null,"Yellow","Rock","Coldplay","Coldplay - Yellow.mp3"),
 (null,"Lama nas Ruas","Samba","Diogo Nogueira","Diogo Nogueira - Lama nas Ruas.mp3"),
@@ -96,4 +96,5 @@ insert into musica values
 (null,"Os Papeis - O samba e meu dom","Samba","Wilson das Neves","Wilson das Neves - Os Papeis - O samba e meu dom.mp3"),
 (null,"Deus é Mais","Samba","Xande de Pilares","Xande de Pilares - Deus é Mais.mp3"),
 (null,"O Penetra Pai Coruja - Vacilao","Samba","Ze Roberto","Ze Roberto - O Penetra Pai Coruja - Vacilao.mp3");
+
 
